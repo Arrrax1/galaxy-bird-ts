@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=McLaren&family=Nunito&family=Rubik+Pixels&family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=McLaren&family=Nunito&family=Orbitron&display=swap');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -13,16 +13,41 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  user-select: none;
 }
 
 body{
   margin: 0;
   display: grid;
   place-content: center;
+  place-items: center;
   text-align: center;
   font-family: 'Orbitron', monospace;
 }
 #canvas{border: 6px solid silver;}
+
+.play-container{
+  position: absolute;
+  top: 50%;
+  transform:translateY(-50%) ;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  background-color: #191919b4;
+  font-family: 'Orbitron',monospace;
+  font-size: 14px;
+  letter-spacing: 8px;
+  width: 300px;
+  padding: 50px 70px;
+  gap: 10px;
+  border-width: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(2, 148, 206), rgb(76, 207, 247)) 1;
+  transition: all 400ms ease;
+}
+img{cursor: pointer;width: 150px;-webkit-user-drag: none;}
+img:active{scale: 0.95;}
 
 @media (prefers-color-scheme: light) {
   :root {

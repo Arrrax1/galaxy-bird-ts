@@ -1,5 +1,5 @@
 import Bird from "./BirdInstance";
-import rocketPath from "../src/assets/spaceShip.png" ;
+import rocketPath from "/assets/spaceShip.png" ;
 let rocket = document.createElement('img')
 rocket.src=rocketPath
 

@@ -1,4 +1,7 @@
 import Bird from "./BirdInstance";
+import rocketPath from "../src/assets/spaceShip.png" ;
+let rocket = document.createElement('img')
+rocket.src=rocketPath
 
 function birdUp(i:number,bird:Bird) {
     setTimeout(() => {
@@ -12,8 +15,9 @@ function birdDown(bird:Bird):number {
 }
 
 function drawBird(x:number, y:number, ctx:any) {
-    ctx.fillStyle = 'goldenrod'
-    ctx.fillRect(x, y, 30, 30)
+    // ctx.fillStyle = 'goldenrod'
+    // ctx.fillRect(x, y, 30, 30)
+    ctx.drawImage(rocket,x,y,40,30)
 }
 
 export {birdUp,birdDown,drawBird}

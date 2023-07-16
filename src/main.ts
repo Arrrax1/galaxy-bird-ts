@@ -1,6 +1,6 @@
 import { drawPipes } from "./pipes"
 import Bird from "./BirdInstance";
-import { birdDown, birdUp, drawBird } from "./bird";
+import { birdDown, birdUp, drawBird,bird_contact_pipe, outOfBounds, birdScore } from "./bird";
 
 let bird = new Bird()
 
@@ -22,7 +22,8 @@ for (let index = 0; index < 30; index++) {
   starsArray.push([Math.floor(Math.random() * 350) + 10, Math.floor(Math.random() * 450) + 10])
 }
 
-let birdWillGoDown:number,birdGoUp:number
+let score=0
+let birdWillGoDown:number,birdGoUp:number,gameStart:number
 
 function start() {
   // Background
@@ -33,7 +34,11 @@ function start() {
     ctx.fillRect(starsArray[index][0], starsArray[index][1], 1, 1)
     drawBird(bird.position[0], bird.position[1], ctx)
   }
-  setInterval(() => {
+  gameStart=setInterval(() => {
+    if (bird_contact_pipe(bird.position[0],bird.position[1],pipes,pipesGap) || outOfBounds(bird.position[1],canvas.height)) clearInterval(gameStart)
+    if (birdScore(bird.position[0],pipes[0][0]) ) document.querySelector<HTMLSpanElement>('#score')!.textContent=`Score : ${++score}`
+    
+    // if (outOfBounds(bird.position[1],canvas.height)) console.log("OutOfBounds")
     drawPipes(pipes, pipesGap, starsArray, ctx, canvas.width, canvas.height)
     drawBird(bird.position[0], bird.position[1], ctx)
     // if reached the end, add another pipe end delete out of canvas pipe

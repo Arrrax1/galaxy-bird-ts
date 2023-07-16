@@ -1,16 +1,14 @@
 import Bird from "./BirdInstance";
 
-let bird = new Bird()
-
-function birdUp(i:number,bird:number[]) {
+function birdUp(i:number,bird:Bird) {
     setTimeout(() => {
-        bird[1] = bird[1] - 1
+        bird.y = bird.position[1] - 1
     }, 7 * i);
 }
-function birdDown(birdInterval:number,bird:number[]) {
-    birdInterval = setInterval(() => {
-        bird[1] = bird[1] + 2
-    }, 20);
+function birdDown(bird:Bird):number {
+    return setInterval(() => {
+        bird.y = bird.position[1] + 2
+    }, 15);
 }
 
 function drawBird(x:number, y:number, ctx:any) {

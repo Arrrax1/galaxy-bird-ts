@@ -1,4 +1,3 @@
-type posArray = [number,number]
 class Bird {
     x: number;
     y: number;
@@ -8,10 +7,6 @@ class Bird {
     }
     get position():number[]{
         return [this.x,this.y]
-    }
-    set position(x:posArray){
-        this.x=x[0]
-        this.y=x[1]
     }
 }
 

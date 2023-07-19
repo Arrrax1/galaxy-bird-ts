@@ -1,0 +1,3 @@
+[submodule "lib/neat-js"]
+	path = lib/neat-js
+	url = https://github.com/jaqee-a/neat-js.git

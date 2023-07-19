@@ -53,4 +53,11 @@ function birdScore(birdX:number,pipe1X:number) {
     return birdX===pipe1X+50 ? true : false
 }
 
-export {birdUp,birdDown,drawBird,bird_contact_pipe,outOfBounds,birdScore}
+function start_braining(bird:Bird,pipeY:number) {
+  bird.brain.constructTopologicalNetwork()
+  return bird.brain.calculateOutput([bird.y/500,pipeY/500])
+}
+
+
+
+export {birdUp,birdDown,drawBird,bird_contact_pipe,outOfBounds,birdScore,start_braining}

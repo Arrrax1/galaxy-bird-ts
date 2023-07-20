@@ -102,5 +102,5 @@ function gameOver() {
       gameStarted=false
     }, 300)
   }, 500)
-  Number.parseInt(localStorage.getItem("highestScore")!) < score ? localStorage.setItem("highestScore",score) : ''
+  Number.parseInt(localStorage.getItem("highestScore")!) < score ? localStorage.setItem("highestScore",score.toString()) : ''
 }

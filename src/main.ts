@@ -9,7 +9,7 @@ let canvas = document.querySelector<HTMLCanvasElement>('#canvas')!
 canvas.width = 400
 canvas.height = 500
 let ctx = canvas.getContext('2d')!
-
+localStorage.getItem("highestScore") ==  null ? document.querySelector<HTMLSpanElement>('#highScore')!.textContent = `Highest Score : 0` : document.querySelector<HTMLSpanElement>('#highScore')!.textContent = `Highest Score : ${Number.parseInt(localStorage.getItem("highestScore")!)} `
 // initial pipes
 // need 3 pipes
 let pipes = [[400, 200], [630, Math.floor(Math.random() * 15) * 10 + 150], [860, Math.floor(Math.random() * 15) * 10 + 150]]
@@ -102,5 +102,9 @@ function gameOver() {
       gameStarted=false
     }, 300)
   }, 500)
-  Number.parseInt(localStorage.getItem("highestScore")!) < score ? localStorage.setItem("highestScore",score.toString()) : ''
+  let lclStr = localStorage.getItem("highestScore")!
+  if (Number.isNaN(Number.parseInt(lclStr)) || Number.parseInt(localStorage.getItem("highestScore")!) < score) {
+    localStorage.setItem("highestScore",score.toString())
+    document.querySelector<HTMLSpanElement>('#highScore')!.textContent = `Highest Score : ${score}`    
+  }
 }

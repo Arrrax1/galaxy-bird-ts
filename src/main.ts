@@ -102,4 +102,5 @@ function gameOver() {
       gameStarted=false
     }, 300)
   }, 500)
+  localStorage.getItem("highestScore",score) < score ? localStorage.setItem("highestScore",score) : ''
 }
